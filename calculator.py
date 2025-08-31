@@ -1,38 +1,58 @@
-print("--------------Calculator--------------")
-
+print("---------------------Calculator---------------------")
 
 while True:
-    first_number = float(input("Enter The First Number (only number) : "))                      # First Number for the equation
-    second_number = float(input("Enter The Second Number (only number) : "))                    # Second Number for the equation
-    num = input("Enter The Equation Operator : (+,-,*,**,/,//,%) or press \'q' for quit : ")       # exponentiation operator symbol enter
+    # Input first number (with quit option)
+    first_number = input("Enter the First Number (or 'q' to quit): ")
+    if first_number.lower() == "q":
+        print("Exiting the calculator.")
+        break
+    first_number = float(first_number)
 
-    if (num=="+"):
-        print("Addition of", first_number, "+", second_number, "=", first_number+second_number)             # for addition
-    elif(num == "-"):
-        print("Subtraction of", first_number, "-", second_number, "=", first_number-second_number)          # for Subtraction
-    elif(num=="*"):
-        print("Multiplication of", first_number, "X", second_number, "=", first_number*second_number)       # for Multiplication
-    elif(num=="**"):
-        print("Square root of", first_number, "&", second_number, "=", first_number**second_number)         # for Square root
-    elif(num=="%"):
-        print("Modulus of", first_number, "%", second_number, "=", first_number%second_number)              # for Modulus
-    elif num == "/":
-        if second_number != 0:                                                                              # Valid Check
-            print("Division of", first_number, "/", second_number, "=", first_number / second_number)       # for Division of
-        else:
-            print("Error: Division by zero is not allowed.")                                                # Divition error handler
-    elif num == "//":
-        if second_number != 0:                                                                                      # Valid Check
-            print("Floor Division of", first_number, "//", second_number, "=", first_number // second_number)       # for floor devition
-        else:
-            print("Error: Floor Division by zero is not allowed.")                                          # Divition error handler
-    elif num == "q":
-        print("Exiting The Calculator")
+    # Input second number (with quit option)
+    second_number = input("Enter the Second Number (or 'q' to quit): ")
+    if second_number.lower() == "q":
+        print("Exiting the calculator.")
         break
-    elif num == "Q":
-        print("Exiting The Calculator")
+    second_number = float(second_number)
+
+    # Show menu
+    print("1 for Addition (+)")
+    print("2 for Subtraction (-)")
+    print("3 for Multiplication (*)")
+    print("4 for Power (**)")
+    print("5 for Division (/)")
+    print("6 for Floor Division (//)")
+    print("7 for Modulus (%)")
+
+    num = input("Enter The Operator (1-7 or symbol) or press 'q' to quit: ")
+    if num.lower() == "q":
+        print("Exiting the calculator.")
         break
+
+    if num in ["1", "+"]:
+        print("Addition =", first_number + second_number)
+    elif num in ["2", "-"]:
+        print("Subtraction =", first_number - second_number)
+    elif num in ["3", "*"]:
+        print("Multiplication =", first_number * second_number)
+    elif num in ["4", "**"]:
+        print("Power =", first_number ** second_number)
+    elif num in ["5", "/"]:
+        if second_number != 0:
+            print("Division =", first_number / second_number)
+        else:
+            print("Error: Division by zero is not allowed.")
+    elif num in ["6", "//"]:
+        if second_number != 0:
+            print("Floor Division =", first_number // second_number)
+        else:
+            print("Error: Division by zero is not allowed.")
+    elif num in ["7", "%"]:
+        if second_number != 0:
+            print("Modulus =", first_number % second_number)
+        else:
+            print("Error: Division by zero is not allowed.")
     else:
-        print("Equatoin is Invalid")                                                                        # Code Error handler
+        print("Error: Invalid operator.")
 
-    print("______________________________________\n")
+    print("____________________________________________________\n")
